@@ -10,81 +10,110 @@
 body{margin:0;background:var(--bg);background-image:radial-gradient(#f3d9e6 1.2px,transparent 1.2px);background-size:22px 22px;color:var(--ink);
   font:17px/1.7 "PingFang TC","PingFang HK","Microsoft JhengHei","Noto Sans TC",system-ui,sans-serif}
 
-main{max-width:760px;margin:0 auto;padding:36px 16px 48px}
-header{text-align:center;margin-bottom:26px}
-.logo{font-size:56px;line-height:1}
-h1{margin:8px 0 2px;font-size:34px;color:var(--accent);letter-spacing:.06em}
-header p{margin:0;color:var(--soft)}
-.cards{display:grid;gap:16px}
-.card{display:grid;grid-template-columns:64px 1fr auto;align-items:center;gap:14px;padding:18px 20px;background:var(--card);border:3px solid var(--line);
-  border-radius:24px;box-shadow:0 6px 0 #f3dde8;color:inherit;text-decoration:none;transition:transform .12s,box-shadow .12s}
-.card:hover,.card:focus-visible{transform:translateY(-2px);box-shadow:0 8px 0 #eccbdb;outline:none;border-color:#e6b3cb}
-.card:active{transform:translateY(2px);box-shadow:0 3px 0 #f3dde8}
-.emoji{font-size:44px;text-align:center}
-.card b{display:block;font-size:21px;color:#8e2457}
-.card small{display:block;color:var(--soft);font-size:15px;line-height:1.6}
-.go{font-weight:700;color:#fff;background:var(--accent);border-radius:999px;padding:8px 16px;white-space:nowrap;box-shadow:0 3px 0 #96214f}
-.tip{margin:26px 0 0;padding:14px 18px;border:2px dashed #ecc7d8;border-radius:18px;background:#fffafc;color:var(--soft);font-size:15px}
+main{max-width:1080px;margin:0 auto;padding:28px 16px 48px}
+.hero{display:flex;align-items:center;justify-content:center;gap:18px;margin:4px 0 22px;text-align:left}
+.logo{font-size:64px;line-height:1;filter:drop-shadow(0 4px 0 #f3dde8)}
+h1{margin:0;font-size:36px;color:var(--accent);letter-spacing:.06em;line-height:1.2}
+.hero p{margin:2px 0 0;color:var(--soft);font-weight:700}
+.jump{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:0 0 18px;padding:0;list-style:none}
+.jump a{display:inline-block;padding:5px 14px;border-radius:999px;background:#fff;border:2px solid var(--line);color:#8e2457;font-weight:800;font-size:15px;text-decoration:none}
+.jump a:hover,.jump a:focus-visible{border-color:#e6b3cb;outline:none}
+section.group{margin:0 0 22px;padding:16px 16px 18px;background:rgba(255,255,255,.72);border:3px solid var(--line);border-radius:28px}
+.group h2{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 12px;margin:0 4px 12px;font-size:22px;color:#8e2457}
+.group h2 small{font-size:15px;color:var(--soft);font-weight:600}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.card{position:relative;display:grid;grid-template-columns:58px 1fr;align-items:start;gap:12px;padding:16px 18px 14px;background:var(--card);border:3px solid var(--line);
+  border-radius:22px;box-shadow:0 5px 0 #f3dde8;color:inherit;text-decoration:none;transition:transform .12s,box-shadow .12s}
+.card:hover,.card:focus-visible{transform:translateY(-2px);box-shadow:0 7px 0 #eccbdb;outline:none;border-color:#e6b3cb}
+.card:active{transform:translateY(2px);box-shadow:0 2px 0 #f3dde8}
+.emoji{display:grid;place-items:center;width:58px;height:58px;border-radius:18px;background:#fff0f6;font-size:34px}
+.card.is-learn .emoji{background:#e7f5ff}
+.num{display:inline-block;margin-right:6px;padding:0 9px;border-radius:999px;background:var(--accent);color:#fff;font-size:14px;font-weight:800;vertical-align:2px}
+.card.is-learn .num{background:#1c7ed6}
+.card b{display:block;font-size:20px;color:#5b1d3c;line-height:1.4}
+.card small{display:block;margin-top:2px;color:var(--soft);font-size:14.5px;line-height:1.6}
+.go{display:inline-block;margin-top:8px;font-weight:800;font-size:14px;color:var(--accent)}
+.card.is-learn .go{color:#1c7ed6}
+.tip{margin:6px 0 0;padding:14px 18px;border:2px dashed #ecc7d8;border-radius:18px;background:#fffafc;color:var(--soft);font-size:15px}
+.tip b{color:#8e2457}
 footer{margin-top:22px;text-align:center;color:#9a8a9e;font-size:13px}
-@media (max-width:520px){.card{grid-template-columns:48px 1fr;padding:16px}.emoji{font-size:36px}.go{grid-column:1/-1;text-align:center}}
+@media (max-width:560px){h1{font-size:28px}.logo{font-size:48px}.hero{gap:12px}.cards{grid-template-columns:1fr}.card{grid-template-columns:48px 1fr;padding:14px}.emoji{width:48px;height:48px;font-size:28px;border-radius:14px}.card b{font-size:18px}}
 </style>
 </head>
 <body>
 <main>
-  <header>
+  <header class="hero">
     <div class="logo" aria-hidden="true">🏝️</div>
-    <h1>陳朱拼音島</h1>
-    <p>普通話拼音互動教室</p>
+    <div><h1>陳朱拼音島</h1><p>普通話拼音互動教室</p></div>
   </header>
-  <nav class="cards" aria-label="選擇練習">
-    <a class="card" href="learn1.html">
-      <span class="emoji" aria-hidden="true">🔊</span>
-      <span><b>學習一 · 點讀與四聲</b><small>點聲母韻母聽呼讀音，看口形和詞例；用四聲過山車認識四聲、輕聲與變調。</small></span>
-      <span class="go">開始 →</span>
-    </a>
-    <a class="card" href="learn2.html">
-      <span class="emoji" aria-hidden="true">🧩</span>
-      <span><b>學習二 · 拼合與收藏</b><small>選聲母、韻母和聲調，聽三步拼讀，把學會的音節收進收藏冊。</small></span>
-      <span class="go">開始 →</span>
-    </a>
-    <a class="card" href="p1a.html">
-      <span class="emoji" aria-hidden="true">📢</span>
-      <span><b>練習一A · 聲韻尋寶</b><small>聽讀音，找出字的聲母或韻母；也可只聽呼讀音，認出是哪一個聲母韻母。</small></span>
-      <span class="go">開始 →</span>
-    </a>
-    <a class="card" href="p1b.html">
-      <span class="emoji" aria-hidden="true">🎵</span>
-      <span><b>練習一B · 聲調小偵探</b><small>聽讀音分辨四聲和輕聲；可專練第二聲與第三聲、第一聲與第四聲。</small></span>
-      <span class="go">開始 →</span>
-    </a>
-    <a class="card" href="p1c.html">
-      <span class="emoji" aria-hidden="true">👂</span>
-      <span><b>練習一C · 順風耳對決</b><small>聽讀音，從相近的拼音中選出正確的一個：平翹舌、n 與 l、前後鼻音等。</small></span>
-      <span class="go">開始 →</span>
-    </a>
-    <a class="card" href="p1d.html">
-      <span class="emoji" aria-hidden="true">🪄</span>
-      <span><b>練習一D · 拼寫魔法屋</b><small>選出寫法正確的拼音：ü 的兩點、標調位置、iu ui un 省寫、y 和 w。</small></span>
-      <span class="go">開始 →</span>
-    </a>
-    <a class="card" href="p2a.html">
-      <span class="emoji" aria-hidden="true">🧱</span>
-      <span><b>練習二A · 聲韻組裝王</b><small>聽讀音、看漢字，選聲母、韻母和聲調組裝拼音；每題附拼寫步驟解說。</small></span>
-      <span class="go">開始 →</span>
-    </a>
-    <a class="card" href="p2b.html">
-      <span class="emoji" aria-hidden="true">🔤</span>
-      <span><b>練習二B · 漢字找拼音</b><small>看漢字，選出正確的拼音；可專練平翹舌、前後鼻音、聲調、輕聲等。</small></span>
-      <span class="go">開始 →</span>
-    </a>
-    <a class="card" href="p2c.html">
-      <span class="emoji" aria-hidden="true">🀄</span>
-      <span><b>練習二C · 拼音找漢字</b><small>看拼音，選出正確的字、詞或成語；每題附答案解說，可單人挑戰或對戰。</small></span>
-      <span class="go">開始 →</span>
-    </a>
-  </nav>
-  <p class="tip">用 iPad 時：讀音在用到時才下載，第一次播放通常不到一秒。如果沒有聲音，請再按一次播放，並檢查音量和靜音設定。</p>
-  <footer>錄音主要來自 audio-cmn（CC BY-SA），詳見各頁底部「錄音來源與使用授權」。<br>網站版本：2026-10-28 · 第 19 版</footer>
+  <nav aria-label="分類"><ul class="jump"><li><a href="#g0">📚 學習</a></li><li><a href="#g1">👂 聽音辨音</a></li><li><a href="#g2">✏️ 拼寫拼音</a></li><li><a href="#g3">🀄 漢字與拼音</a></li><li><a href="#g4">🗣️ 粵普對譯</a></li></ul></nav>
+  <section class="group" id="g0" aria-label="學習">
+    <h2>📚 學習<small>先學：聽清楚、看清楚、讀出來。</small></h2>
+    <div class="cards">
+      <a class="card is-learn" href="learn1.html">
+        <span class="emoji" aria-hidden="true">🔊</span>
+        <span><b><span class="num">學習一</span>點讀與四聲</b><small>點聲母、韻母聽呼讀音，看口形；每個音都有四聲和例字，用四聲過山車認識四聲、輕聲與變調。</small><span class="go">開始學習 →</span></span>
+      </a>
+      <a class="card is-learn" href="learn2.html">
+        <span class="emoji" aria-hidden="true">🧩</span>
+        <span><b><span class="num">學習二</span>拼合與收藏</b><small>選聲母、韻母和聲調，聽三步拼讀，把學會的音節收進收藏冊。</small><span class="go">開始學習 →</span></span>
+      </a>
+    </div>
+  </section>
+  <section class="group" id="g1" aria-label="聽音辨音">
+    <h2>👂 聽音辨音<small>聽讀音，分辨聲母、韻母和聲調。</small></h2>
+    <div class="cards">
+      <a class="card" href="p1.html">
+        <span class="emoji" aria-hidden="true">📢</span>
+        <span><b><span class="num">練習一</span>聲韻尋寶</b><small>聽讀音，找出字的聲母或韻母；可按單韻母、複韻母、鼻韻母、介音韻母分類練習，也可只聽呼讀音。</small><span class="go">開始練習 →</span></span>
+      </a>
+      <a class="card" href="p2.html">
+        <span class="emoji" aria-hidden="true">🎵</span>
+        <span><b><span class="num">練習二</span>聲調小偵探</b><small>聽讀音分辨四聲和輕聲；可專練第二聲與第三聲、第一聲與第四聲。</small><span class="go">開始練習 →</span></span>
+      </a>
+      <a class="card" href="p3.html">
+        <span class="emoji" aria-hidden="true">👂</span>
+        <span><b><span class="num">練習三</span>順風耳對決</b><small>聽讀音，從相近的拼音中選出正確的一個：平翹舌、n 與 l、前後鼻音等。</small><span class="go">開始練習 →</span></span>
+      </a>
+    </div>
+  </section>
+  <section class="group" id="g2" aria-label="拼寫拼音">
+    <h2>✏️ 拼寫拼音<small>掌握拼寫規則，自己組裝拼音。</small></h2>
+    <div class="cards">
+      <a class="card" href="p4.html">
+        <span class="emoji" aria-hidden="true">🪄</span>
+        <span><b><span class="num">練習四</span>拼寫魔法屋</b><small>選出寫法正確的拼音：ü 的兩點、標調位置、iu ui un 省寫、y 和 w。</small><span class="go">開始練習 →</span></span>
+      </a>
+      <a class="card" href="p5.html">
+        <span class="emoji" aria-hidden="true">🧱</span>
+        <span><b><span class="num">練習五</span>聲韻組裝王</b><small>聽讀音、看漢字，選聲母、韻母和聲調組裝拼音；每題附拼寫步驟解說。</small><span class="go">開始練習 →</span></span>
+      </a>
+    </div>
+  </section>
+  <section class="group" id="g3" aria-label="漢字與拼音">
+    <h2>🀄 漢字與拼音<small>漢字和拼音互相配對。</small></h2>
+    <div class="cards">
+      <a class="card" href="p6.html">
+        <span class="emoji" aria-hidden="true">🔤</span>
+        <span><b><span class="num">練習六</span>漢字找拼音</b><small>看漢字，選出正確的拼音；可專練平翹舌、前後鼻音、聲調、輕聲等。</small><span class="go">開始練習 →</span></span>
+      </a>
+      <a class="card" href="p7.html">
+        <span class="emoji" aria-hidden="true">🀄</span>
+        <span><b><span class="num">練習七</span>拼音找漢字</b><small>看拼音，選出正確的字、詞或成語；每題附答案解說。</small><span class="go">開始練習 →</span></span>
+      </a>
+    </div>
+  </section>
+  <section class="group" id="g4" aria-label="粵普對譯">
+    <h2>🗣️ 粵普對譯<small>把粵語說法換成普通話說法。</small></h2>
+    <div class="cards">
+      <a class="card" href="p8.html">
+        <span class="emoji" aria-hidden="true">🗣️</span>
+        <span><b><span class="num">練習八</span>粵普對譯</b><small>粵語說法和普通話說法互譯：雪櫃→冰箱、佢喺邊度？→他在哪裏？答完讀出普通話並附拼音。</small><span class="go">開始練習 →</span></span>
+      </a>
+    </div>
+  </section>
+  <p class="tip">用 iPad 時：讀音在用到時才下載，第一次播放通常不到一秒；沒有聲音時，請再按一次播放，並檢查音量和靜音設定。<br><b>連線對戰</b>：練習頁的「雙人對戰」和「小組對戰」可選「連線」，多部 iPad 同時作答同一組題目（小組最多 20 組）。</p>
+  <footer>錄音主要來自 audio-cmn（CC BY-SA），詳見各頁底部「錄音來源與使用授權」。<br>網站版本：2026-10-29 · 第 20 版</footer>
 </main>
 <script>
 // 清走舊版本留下的離線功能（網站只在線上使用）
